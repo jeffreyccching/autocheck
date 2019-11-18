@@ -1,0 +1,2 @@
+# autocheck
+AI for Checkers
