@@ -1,5 +1,5 @@
 import numpy as np
-
+from random import * #for random number generator
 
 def state_from_board(board):
     """
@@ -21,6 +21,57 @@ def state_from_board(board):
     state[2, :, :] = board / 3 - state[3, :, :]
     state[1, :, :] = board / 2 - state[2, :, :] - 2*state[3, :, :]
     state[0, :, :] = board - 2*state[1, :, :] - 3*state[2, :, :] - 4*state[3, :, :]
+
+    return state
+
+def remove_piece(state,piece, x,y, ):
+    """
+
+    :param state: the current state
+    :param piece: state for black or white, soldiers or king
+    :param x: stands for the x ccordinate
+    :param y: stand for the y coordinate
+    :return: return the new state
+    """
+    #create random number generator to decide the probability
+    #probability =
+
+    state [piece][x][y] = 0
+    return state
+
+def soldier_moves(state):
+    #to be finished
+    numrows = len(state)  # number of rows
+    numcols = len(state[0])  # number of columns
+    count = 0 #count state as the number of possible moves
+    for i in range (numrows):
+        for j in range (numcols):
+            if (state[i][j]==1) and j<numcols-1
+                count += (state[i+1][j+1])
+                count += (state[i+1][])
+
+    return count
+
+
+def turn_to_king(state,piece,x,y):
+
+    """
+
+    :param state:  current state
+    :param piece:  black or white soldier
+    :return: return the current state
+    :param x: x coordinate
+    :param y:  y coordinate
+
+    """
+    # create random number generator to decide the probability
+    #needed to be edit while probability is included
+    if (piece == 0):
+        state[0][x][y] = 0
+        state[3][x][y] = 1
+    if (piece == 1):
+        state[1][x][y] = 0
+        state[4][x][y] = 1
 
     return state
 
@@ -56,10 +107,10 @@ if __name__ == "__main__":
                       [0, 3, 4, 1],
                       [2, 0, 4, 3],
                       [3, 0, 0, 2]], dtype=np.int16)
-    print(board)
+    #print(board)
     a = state_from_board(board)
     b = expand_board(board)
     c = board_from_state(a)
-    print(a)
-    print(b)
-    print(c)
+    print('a',a)
+    print('b',b)
+    print('c',c)
