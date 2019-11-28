@@ -46,9 +46,9 @@ def soldier_moves(state):
     count = 0 #count state as the number of possible moves
     for i in range (numrows):
         for j in range (numcols):
-            if (state[i][j]==1) and j<numcols-1
+            if (state[i][j]==1) and j<numcols-1:
                 count += (state[i+1][j+1])
-                count += (state[i+1][])
+                count += (state[i+1][j])
 
     return count
 
